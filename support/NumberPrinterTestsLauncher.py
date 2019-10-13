@@ -29,7 +29,7 @@ def CloneRepo():
         
     except GitCommandError:
         print("\nA folder with the same name of the repository is already present. Considering this step already done.");        
-        RepositoryRef = Repo(GIT_REPO_LOCAL)
+        RepositoryRef = Repo(GIT_REPO_LOCAL) # get reference to repo. If this aborts, it means that this is not a git repo...
         
     # all the other types of exception are not considered here and will make the system abort, as expected
    
@@ -68,8 +68,8 @@ def LaunchTests():
   
 def AppendLogToFile (filename, content):
 
-    # Store logs where the launcher script resides
-    os.chdir(os.path.dirname(__file__))
+    # Store logs where the launcher script resides (which is one level up)
+    os.chdir("..")
 
     # Open file and write header (append in case already exist)
     # Create new log every day
