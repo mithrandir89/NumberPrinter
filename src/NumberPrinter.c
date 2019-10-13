@@ -31,14 +31,6 @@
 #define EXPECTED_N_ARG      (2) /* Name of the program + number to be printed from user */
 #define ARG_NUMBER_INDEX    (1) /* The number will be always in the second slot */
 
-//#define ENABLE_DBGLOG
-
-#if defined(ENABLE_DBGLOG)
-#define DBGLOG(...) printf(__VA_ARGS__)
-#else
-#define DBGLOG(...) 
-#endif
-
 /* *****************************************************************************
 **    TYPE DEFINITIONS
 ** ************************************************************************** */
@@ -129,10 +121,6 @@ static bool s_ValidateInput(int ArgNumbers,
     
     /* Assume failure */
     bool Ret = false;
-    
-    DBGLOG("ArgNumbers %d\n", ArgNumbers);
-    if (ArgNumbers > 1)
-        DBGLOG("2nd Argument is %s\n", Args[ARG_NUMBER_INDEX]);
             
     /* Sanity check */
     if(NULL != Args)
@@ -150,9 +138,7 @@ static bool s_ValidateInput(int ArgNumbers,
                     {
                         *ValidatedNumber = (uint32_t)NumberReceived;
                     }
-                    
-                    DBGLOG("Input Number accepted!\n");
-                    
+                                        
                     /* In any case, input is valid */
                     Ret = true;
                 }
