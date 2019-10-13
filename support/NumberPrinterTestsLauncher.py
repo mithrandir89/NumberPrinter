@@ -73,8 +73,8 @@ def AppendLogToFile (filename, content):
 
     # Open file and write header (append in case already exist)
     # Create new log every day
-    f = open(filename + "_" + str(datetime.date.today().day) + str(datetime.date.today().month)+ str(datetime.date.today().year) + ".txt", "a+")
-    f.write("Test executed at " + str(datetime.datetime.now().hour) + ":" + str(datetime.datetime.now().minute) + "\n")
+    f = open(filename + "_" + str(datetime.date.today().day).zfill(2) + str(datetime.date.today().month).zfill(2) + str(datetime.date.today().year) + ".txt", "a+")
+    f.write("Test executed at " + str(datetime.datetime.now().hour).zfill(2) + ":" + str(datetime.datetime.now().minute).zfill(2) + "\n")
     
     # Test output content
     f.write(content)
