@@ -34,7 +34,7 @@
 /* *****************************************************************************
 **    TYPE DEFINITIONS
 ** ************************************************************************** */
-/* For cleanaliness, define an enum for the endianess type */
+/* Define an enum for the possible endianess type */
 typedef enum
 {
     LITTLE_ENDIAN   = 0,
@@ -55,11 +55,11 @@ typedef struct
 /* *****************************************************************************
 **    LOCAL FUNCTION PROTOTYPES
 ** ************************************************************************** */
-static bool s_ValidateInput(int ArgNumbers, const char* Args[], uint32_t* const ValidatedNumber);
-static bool s_ConvertStringToNumber(const char* InputStr, uint64_t* const OutputNum);
+static bool s_ValidateInput( int ArgNumbers, const char* Args[], uint32_t* const ValidatedNumber );
+static bool s_ConvertStringToNumber( const char* InputStr, uint64_t* const OutputNum );
 static void s_SaveSystemEndiannes( void );
-static void s_PrintNumberByteFormat(uint32_t Number);
-static void s_PrintByteArray(const uint8_t* const Array, uint8_t ArraySize, bool Reverse);
+static void s_PrintNumberByteFormat( uint32_t Number );
+static void s_PrintByteArray( const uint8_t* const Array, uint8_t ArraySize, bool Reverse );
 
 /* *****************************************************************************
 **    LOCAL VARIABLES
@@ -70,8 +70,8 @@ static Endianness_t SystemEndianness;
 /* For each endianness define a LookUpTable with the order of printing */
 static const ArrayPrintMethod_t PrintOrderLUT[ENDIANNESS_N] =
 {
-    {true, false}, /* LITTLE_ENDIAN */
-    {false, true}  /* BIG_ENDIAN */
+    {true, false}, /* Order for LITTLE_ENDIAN architecture */
+    {false, true}  /* Order for BIG_ENDIAN architecture */
 };
 
 /* *****************************************************************************
@@ -112,9 +112,9 @@ int main(int argc, char *argv[])
 **    LOCAL FUNCTIONS
 ** ************************************************************************** */
 /* ************************************************************************** */
-static bool s_ValidateInput(int ArgNumbers,
-                            const char* Args[],
-                            uint32_t* const ValidatedNumber)
+static bool s_ValidateInput( int ArgNumbers,
+                             const char* Args[],
+                             uint32_t* const ValidatedNumber )
 {
     /* Need to reserve space for more than accepted range, as we don't know what to expect in input */
     uint64_t NumberReceived;
@@ -149,10 +149,9 @@ static bool s_ValidateInput(int ArgNumbers,
     return Ret;
 }
 
-
 /* ************************************************************************** */
-static bool s_ConvertStringToNumber(const char* InputStr,
-                                    uint64_t* const OutputNum)
+static bool s_ConvertStringToNumber( const char* InputStr,
+                                     uint64_t* const OutputNum )
 {
     bool Ret;
     size_t i;
@@ -191,7 +190,6 @@ static bool s_ConvertStringToNumber(const char* InputStr,
     return Ret;
 }
 
-
 /* ************************************************************************** */
 static void s_SaveSystemEndiannes( void )
 {
@@ -212,9 +210,8 @@ static void s_SaveSystemEndiannes( void )
     return;
 }
 
-
 /* ************************************************************************** */
-static void s_PrintNumberByteFormat(uint32_t Number)
+static void s_PrintNumberByteFormat( uint32_t Number )
 {    
     uint8_t* ArrayPtr;
 
@@ -227,7 +224,7 @@ static void s_PrintNumberByteFormat(uint32_t Number)
     printf("Big Endian: ");
     s_PrintByteArray(ArrayPtr, N_BYTES_UINT32, PrintOrderLUT[SystemEndianness].BigEndianReverse);
     
-    /* Print Little endian format as last */
+    /* Print Little Endian format as last */
     printf("Little Endian: ");
     s_PrintByteArray(ArrayPtr, N_BYTES_UINT32, PrintOrderLUT[SystemEndianness].LittleEndianReverse);
  
@@ -235,9 +232,9 @@ static void s_PrintNumberByteFormat(uint32_t Number)
 }
 
 /* ************************************************************************** */
-static void s_PrintByteArray(const uint8_t* const Array,
-                             uint8_t ArraySize,
-                             bool Reverse)
+static void s_PrintByteArray( const uint8_t* const Array,
+                              uint8_t ArraySize,
+                              bool Reverse )
 {
     uint8_t i;
     uint8_t CurrByte;

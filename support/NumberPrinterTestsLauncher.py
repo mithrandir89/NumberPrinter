@@ -45,7 +45,6 @@ def BuildProgram():
     # NB Not capturing the output as we would like to see it on the terminal
     subprocess.run([BUILDSYSTEM_APP, GIT_REPO_LOCAL])
       
-    
 def LaunchTests():
     # Look for all .py file in the test folder
     TestsList = []
@@ -65,7 +64,6 @@ def LaunchTests():
         TestName, Extension = os.path.splitext(TestsList[i])
         AppendLogToFile(TestName, CompletedProcess.stdout)
         
-  
 def AppendLogToFile (filename, content):
 
     # Store logs where the launcher script resides (which is one level up)
