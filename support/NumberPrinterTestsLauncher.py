@@ -53,7 +53,7 @@ def LaunchTests():
         if file.endswith(".py"):
             TestsList.append(file)
             
-    print("Found #" + str(len(TestsList)) + " TestCases. Launching them...")
+    print("Found #" + str(len(TestsList)) + " Test scripts. Launching them...")
     
     # Launch them using program executable created
     for i in range(len(TestsList)):
