@@ -33,4 +33,5 @@ For each of the tests found, a *.txt* report file is opened and written with the
 Tested on:
 * **Windows 10 64bit**. Using GNU Make 3.82.90 under MINGW and Python 3.7.2.
 
-It should work with minimal efforts/adjustments also on UNIX platforms.
+Program and Test script use only standard libraries/tool and as such they should be already usable in other platforms.
+The launcher should be slightly adapted for different toolchains, but it will run with minimal efforts/adjustments also on UNIX-like platforms.
