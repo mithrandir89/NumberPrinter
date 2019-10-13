@@ -31,6 +31,6 @@ For each of the test found, a *.txt* report file is opened and written with the 
 
 ## Compatibility
 Tested on:
-* **Windows 10 64bit**
+* **Windows 10 64bit**. Using GNU Make 3.82.90 under MINGW and Python 3.7.2.
 
 It should work with minimal efforts/adjustments also on UNIX platforms.
