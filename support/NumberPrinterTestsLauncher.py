@@ -48,7 +48,6 @@ def BuildProgram():
 def LaunchTests():
     # Look for all .py file in the test folder
     TestsList = []
-    import os
     for file in os.listdir(os.path.join(os.getcwd(), TESTS_DIR)):
         if file.endswith(".py"):
             TestsList.append(file)
