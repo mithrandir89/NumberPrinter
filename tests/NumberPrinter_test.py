@@ -23,7 +23,8 @@ TestCases = ( #Input         Expected Ret    Expected stdout
              ("+1",         -1,              ""                                                     ),  # Positive number with '+' sign in front
              ("/*-+",       -1,              ""                                                     ),  # Random math symbols
              ("1.0",        -1,              ""                                                     ),  # Floating point with dot
-             ("1,0",        -1,              ""                                                     )   # Floating point with comma
+             ("1,0",        -1,              ""                                                     ),  # Floating point with comma
+             ("1 2",        -1,              ""                                                     )   # Multiple arguments
             )
 
 TESTRES_RETCODE_INDEX = 0
