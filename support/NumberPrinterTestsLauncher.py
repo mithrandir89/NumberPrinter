@@ -65,7 +65,7 @@ def LaunchTests():
         
 def AppendLogToFile (filename, content):
 
-    # Store logs where the launcher script resides (which is one level up)
+    # Store logs in the working directory where this script has been launched
     os.chdir("..")
 
     # Open file and write header (append in case already exist)
