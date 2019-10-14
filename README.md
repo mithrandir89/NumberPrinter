@@ -9,7 +9,7 @@ A simple application accepting an unsigned 32-bit number from the user and displ
 ## Dependencies
 In order to build the program, `make` and `gcc` (supporting -std=c99) are needed.
 
-All the Python scripts use modern features of Python, mostly leveraging builtin libraries. Recommended a version => **Python 3.7**.
+All the Python scripts use modern features of Python, mostly leveraging builtin libraries. Recommended a version >= **Python 3.7**.
 
 The tests launcher Python script (included in **support** folder) is making use of the external *GitPython* submodule to interact with local and remote repository.
 
@@ -29,9 +29,30 @@ For each of the tests found, a *.txt* report file is opened and written with the
 ![alt text](https://github.com/mithrandir89/NumberPrinter/raw/master/doc/images/launcher_output.PNG "Launcher script output")
 ![alt text](https://github.com/mithrandir89/NumberPrinter/raw/master/doc/images/launcher_log.PNG "Launcher script log")
 
+## Usage
+To build the program, from the root directory:
+```
+mingw32-make NumberPrinter
+```
+or
+```
+make NumberPrinter
+```
+To manually launch the test script, the path for the executable under test must be provided:
+```
+python tests\NumberPrinter_test.py NumberPrinter.exe
+```
+or equivalent.
+
+The Launcher script will work without any argument as the functionality is fully hardcoded.
+It can be invoked from anywhere in the host system:
+```
+python $REPO_DIRECTORY\support\NumberPrinterTestsLauncher.py
+```
+
 ## Compatibility
 Tested on:
-* **Windows 10 64bit**. Using GNU Make 3.82.90 under MINGW and Python 3.7.2.
+* **Windows 7 and 10 (64bit)**. Using GNU Make 3.82.90 under MINGW and Python 3.7.2.
 
 Program and Test script use only standard libraries/tool and as such they should be already usable in other platforms.
 The launcher should be slightly adapted for different toolchains, but it will run with minimal efforts/adjustments also on UNIX-like platforms.
