@@ -2,6 +2,8 @@
 
 One simple change to test forks and PRs on github.
 
+But now we have more changes to push.
+
 A simple application accepting an unsigned 32-bit number from the user and displaying that number in big-endian and little-endian byte formats.
 
 ## Directories structure
